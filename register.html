@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>File Complaint - CITIZEN CONNECT</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    header {
+      background: #3498db; /* blue */
+      color: white;
+      padding: 1rem 0;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo i {
+      font-size: 2rem;
+    }
+    .logo h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+    }
+    nav a.active {
+      background: rgba(255,255,255,0.2);
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container header-content">
+      <div class="logo">
+        <i class="fas fa-hard-hat"></i>
+        <h1>CITIZEN CONNECT</h1>      
+    </div>
+      <nav>
+        <ul>
+          <li><a href="register.html" class="active">File Complaint</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-content">
+      <h2>File a New Complaint</h2>
+      <p>Fill out the form below to report an issue with public infrastructure.</p>
+    </div>
+  </section>
+
+  <!-- Complaint Form -->
+  <section>
+    <div class="container">
+      <div class="form-container">
+        <h2 class="form-title">Complaint Form</h2>
+        <form id="complaint-form">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" required>
+          </div>
+          <div class="form-group">
+            <label for="contact">Contact (Email / Phone)</label>
+            <input type="text" id="contact" required>
+          </div>
+          <div class="form-group">
+            <label for="type">Complaint Type</label>
+            <select id="type" required>
+              <option value="">Select</option>
+              <option>Road</option>
+              <option>Streetlight</option>
+              <option>Water</option>
+              <option>Drainage</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="location">Location</label>
+            <input type="text" id="location" required>
+          </div>
+          <div class="form-group">
+            <label for="desc">Description</label>
+            <textarea id="desc" required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="photo">Upload Photo (optional)</label>
+            <input type="file" id="photo" accept="image/*">
+          </div>
+          <button type="submit" class="btn"><i class="fas fa-paper-plane"></i> Submit</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p class="copyright">
+        &copy; 2025 Public Works Department Complaint System. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("complaint-form").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const id = "C" + Math.floor(Math.random() * 10000);
+      alert("Complaint submitted successfully! Your ID: " + id);
+    });
+  </script>
+</body>
+</html>

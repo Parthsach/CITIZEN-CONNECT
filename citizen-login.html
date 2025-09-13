@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Citizen Login - CITIZEN CONNECT</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    header {
+      background: #3498db; /* blue */
+      color: white;
+      padding: 1rem 0;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo i {
+      font-size: 2rem;
+    }
+    .logo h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+    }
+    nav a.active {
+      background: rgba(255,255,255,0.2);
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container header-content">
+      <div class="logo">
+        <i class="fas fa-hard-hat"></i>
+        <h1>CITIZEN CONNECT</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="citizen-login.html" class="active">Citizen Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Citizen Login Section -->
+  <section class="form-container">
+    <h2 class="form-title">Citizen Login (KYC Verification)</h2>
+    <form id="citizen-login-form">
+      <div class="form-group">
+        <label for="aadhaar">Aadhaar Number</label>
+        <input type="text" id="aadhaar" name="aadhaar" maxlength="12" placeholder="Enter 12-digit Aadhaar Number" required>
+      </div>
+
+      <div class="form-group">
+        <label for="otp">OTP</label>
+        <input type="text" id="otp" name="otp" maxlength="6" placeholder="Enter OTP" disabled required>
+      </div>
+
+      <button type="button" class="btn" id="send-otp-btn">Send OTP</button>
+      <button type="submit" class="btn btn-accent" id="verify-btn" disabled>Verify & Login</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>PWD Complaint System</h3>
+          <p>Helping citizens report public works issues quickly and efficiently for faster resolution.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <a href="index.html">Home</a>
+          <a href="register.html">File Complaint</a>
+          <a href="track.html">Track Complaint</a>
+          <a href="login.html">Staff Login</a>
+        </div>
+        <div class="footer-section">
+          <h3>Contact Us</h3>
+          <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+          <p><i class="fas fa-envelope"></i> support@pwdcomplaints.gov</p>
+          <p><i class="fas fa-map-marker-alt"></i> 123 Main Street, City, State</p>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2023 Public Works Department Complaint System. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const aadhaarInput = document.getElementById("aadhaar");
+      const otpInput = document.getElementById("otp");
+      const sendOtpBtn = document.getElementById("send-otp-btn");
+      const verifyBtn = document.getElementById("verify-btn");
+
+      // Aadhaar validation (basic check)
+      function isValidAadhaar(aadhaar) {
+        return /^[0-9]{12}$/.test(aadhaar);
+      }
+
+      // Send OTP Simulation
+      sendOtpBtn.addEventListener("click", () => {
+        const aadhaar = aadhaarInput.value.trim();
+        if (!isValidAadhaar(aadhaar)) {
+          alert("Please enter a valid 12-digit Aadhaar number.");
+          return;
+        }
+        alert(`OTP has been sent to your Aadhaar-linked mobile number.`);
+        otpInput.disabled = false;
+        verifyBtn.disabled = false;
+      });
+
+      // Verify OTP Simulation
+      document.getElementById("citizen-login-form").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const otp = otpInput.value.trim();
+        if (otp.length === 6) {
+          alert("KYC Successful! You are now logged in.");
+          window.location.href = "register.html"; // redirect to complaint filing page
+        } else {
+          alert("Invalid OTP. Please try again.");
+        }
+      });
+    });
+  </script>
+</body>
+</html>

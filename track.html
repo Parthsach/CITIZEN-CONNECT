@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Track Complaint - CITIZEN CONNECT</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    header {
+      background: #3498db; /* blue */
+      color: white;
+      padding: 1rem 0;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo i {
+      font-size: 2rem;
+    }
+    .logo h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+    }
+    nav a.active {
+      background: rgba(255,255,255,0.2);
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container header-content">
+      <div class="logo">
+        <i class="fas fa-hard-hat"></i>
+        <h1>CITIZEN CONNECT</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="track.html" class="active">Track Complaint</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-content">
+      <h2>Track Your Complaint</h2>
+      <p>Enter your complaint ID below to check its current status.</p>
+    </div>
+  </section>
+
+  <!-- Tracking Form -->
+  <section>
+    <div class="container">
+      <div class="form-container">
+        <h2 class="form-title">Check Complaint Status</h2>
+        <form id="track-form">
+          <div class="form-group">
+            <label for="track-id">Complaint ID</label>
+            <input type="text" id="track-id" required>
+          </div>
+          <button type="submit" class="btn"><i class="fas fa-search"></i> Check Status</button>
+        </form>
+        <div id="status-result" style="margin-top:20px; font-weight:600; text-align:center;"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p class="copyright">
+        &copy; 2025 CITIZEN CONNECT. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("track-form").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const id = document.getElementById("track-id").value;
+      document.getElementById("status-result").innerText =
+        "Status for " + id + ": Pending (Demo)";
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - CITIZEN CONNECT</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    header {
+      background: #3498db; /* blue */
+      color: white;
+      padding: 1rem 0;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo i {
+      font-size: 2rem;
+    }
+    .logo h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+    }
+    nav a.active {
+      background: rgba(255,255,255,0.2);
+    }
+    .stats-table, .hero-table, .complaints-table {
+      width: 100%;
+      margin-bottom: 2rem;
+      border-collapse: collapse;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .stats-table th, .stats-table td,
+    .hero-table th, .hero-table td,
+    .complaints-table th, .complaints-table td {
+      padding: 1rem;
+      text-align: center;
+      border-bottom: 1px solid #eee;
+      font-size: 1.1rem;
+    }
+    .stats-table th, .hero-table th, .complaints-table th {
+      background-color: #3498db;
+      color: white;
+      font-weight: 600;
+    }
+    .stats-table td, .hero-table td, .complaints-table td {
+      background-color: #f5f7fa;
+      font-weight: 500;
+    }
+    .status {
+      padding: 0.3rem 0.8rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      display: inline-block;
+    }
+    .status-pending {
+      background-color: #ffeaa7;
+      color: #d35400;
+    }
+    .status-in-progress {
+      background-color: #81ecec;
+      color: #00cec9;
+    }
+    .status-resolved {
+      background-color: #55efc4;
+      color: #00b894;
+    }
+    .btn-small {
+      padding: 0.3rem 0.7rem;
+      font-size: 0.9rem;
+      margin: 0 2px;
+    }
+    .btn-accent {
+      background: #e74c3c;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .btn {
+      background: #3498db;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container header-content">
+      <div class="logo">
+        <i class="fas fa-hard-hat"></i>
+        <h1>CITIZEN CONNECT</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="dashboard.html" class="active">Dashboard</a></li>
+          <li><a href="index.html">Logout</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Table -->
+  <section>
+    <div class="container">
+      <table class="hero-table">
+        <tr>
+          <th colspan="2">Complaint Dashboard</th>
+        </tr>
+        <tr>
+          <td style="width:30%;"><strong>Description</strong></td>
+          <td>View and manage complaints submitted by citizens.</td>
+        </tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- Dashboard Stats Table -->
+  <section>
+    <div class="container">
+      <table class="stats-table">
+        <thead>
+          <tr>
+            <th>Pending</th>
+            <th>In Progress</th>
+            <th>Resolved</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>12</td>
+            <td>8</td>
+            <td>15</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Complaints Table -->
+      <table class="complaints-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Citizen</th>
+            <th>Type</th>
+            <th>Location</th>
+            <th>Status</th>
+            <th>Update</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>C1021</td>
+            <td>John Doe</td>
+            <td>Road</td>
+            <td>Main Street</td>
+            <td><span class="status status-pending">Pending</span></td>
+            <td>
+              <button class="btn btn-small">In Progress</button>
+              <button class="btn btn-small btn-accent">Resolved</button>
+            </td>
+          </tr>
+          <tr>
+            <td>C1022</td>
+            <td>Jane Smith</td>
+            <td>Streetlight</td>
+            <td>Park Avenue</td>
+            <td><span class="status status-in-progress">In Progress</span></td>
+            <td>
+              <button class="btn btn-small">Pending</button>
+              <button class="btn btn-small btn-accent">Resolved</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p class="copyright">
+        &copy; 2025 CITIZEN CONNECT. All rights reserved.
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
